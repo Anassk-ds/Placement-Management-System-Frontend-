@@ -1,63 +1,137 @@
-/* Reset */
+/* ===========================
+   Global Reset
+=========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
+/* ===========================
+   Body
+=========================== */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f6f9;
+  background: #f4f6f9;
+  color: #333;
 }
 
-/* Root container */
+/* ===========================
+   Root
+=========================== */
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Main Section */
+/* ===========================
+   Main Layout
+=========================== */
 .main {
   display: flex;
   flex: 1;
-  background-color: #f4f6f9;
+  min-height: calc(100vh - 120px);
 }
 
-/* Sidebar */
+/* ===========================
+   Sidebar
+=========================== */
 .main aside {
   width: 250px;
+  background: #1e293b;
+  color: white;
+  min-height: 100%;
 }
 
-/* Content Area */
-.main section,
-.main .content {
+/* ===========================
+   Content
+=========================== */
+.content,
+.main section {
   flex: 1;
-  padding: 20px;
+  padding: 25px;
+  background: #f8fafc;
+  overflow-y: auto;
 }
 
-/* Registration Component */
+/* ===========================
+   Registration Form
+=========================== */
 .registration-container {
-  width: 450px;
+  width: 100%;
+  max-width: 500px;
   margin: 30px auto;
   background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
-/* Footer */
+.registration-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2563eb;
+}
+
+/* Form Inputs */
+.registration-container input,
+.registration-container select,
+.registration-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.registration-container input:focus,
+.registration-container select:focus,
+.registration-container textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* Buttons */
+.registration-container button {
+  width: 100%;
+  padding: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.registration-container button:hover {
+  background: #1d4ed8;
+}
+
+/* ===========================
+   Footer
+=========================== */
 footer {
   width: 100%;
-  background-color: #222;
+  background: #1f2937;
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: auto;
+  font-size: 15px;
 }
 
-/* Responsive */
+/* ===========================
+   Responsive Design
+=========================== */
+@media (max-width: 992px) {
+  .main aside {
+    width: 220px;
+  }
+}
+
 @media (max-width: 768px) {
   .main {
     flex-direction: column;
@@ -67,15 +141,27 @@ footer {
     width: 100%;
   }
 
+  .content,
+  .main section {
+    padding: 15px;
+  }
+
   .registration-container {
-    width: 90%;
+    width: 95%;
+    padding: 20px;
   }
 }
-.main {
-    display: flex;
-}
 
-.content {
-    flex: 1;
-    padding: 20px;
+@media (max-width: 480px) {
+  .registration-container {
+    padding: 15px;
+  }
+
+  .registration-container h2 {
+    font-size: 22px;
+  }
+
+  .registration-container button {
+    font-size: 15px;
+  }
 }
