@@ -1,0 +1,26 @@
+.table-container {
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.table-container th {
+  background-color: #1976d2;
+  color: white;
+  position: sticky;
+  top: 0;
+}
