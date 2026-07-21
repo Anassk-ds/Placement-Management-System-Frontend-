@@ -2,6 +2,7 @@ import './App.css';
 
 import { Routes, Route } from "react-router-dom";
 
+import { useState } from 'react';
 
 import Layout from './components/Layouts/Layout';
 
@@ -22,23 +23,25 @@ import NotFound from './components/pages/NotFound/NotFound';
 import CompanyRegistration from './components/pages/CompanyRegistration/CompanyRegistration';
 
 import Companies from './components/Companies/Companies';
+import EditStudent from "./components/pages/EditStudent/EditStudent";
 
 
 
 function App() {
 
+  const [students, setStudents] = useState([]);
 
   return (
 
     <Routes>
 
-
-      {/* Without Layout */}
-
       <Route 
         path="/login" 
         element={<Login />}
       />
+
+      {/* Without Layout */}
+
 
 
       <Route 
@@ -75,6 +78,15 @@ function App() {
           path="/student/:id" 
           element={<StudentDetails />}
         />
+        <Route
+          path="/students/edit/:id"
+          element={
+            <EditStudent
+              students={students}
+              setStudents={setStudents}
+            />
+          }
+        />
 
 
         <Route 
@@ -106,6 +118,4 @@ function App() {
   );
 
 }
-
-
 export default App;
